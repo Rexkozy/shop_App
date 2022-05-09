@@ -2,12 +2,10 @@ import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'package:shop_app/providers/cart.dart';
 import 'package:shop_app/providers/product.dart';
-import 'package:shop_app/providers/products.dart';
 import 'package:shop_app/screens/cartscreen.dart';
 import 'package:shop_app/widgets/18601868-badge.dart';
 import 'package:shop_app/widgets/appdrawer.dart';
 import 'package:shop_app/widgets/product_grid.dart';
-import 'package:shop_app/widgets/product_item.dart';
 
 enum FavouritesOptions {
   favorites,
@@ -39,13 +37,13 @@ class _HomeScreenState extends State<HomeScreen> {
                 }
               });
             },
-            itemBuilder: (ctx) => [
+            itemBuilder: (ctx) => const [
               PopupMenuItem(
-                child: const Text("Only Favorites"),
+                child: Text("Only Favorites"),
                 value: FavouritesOptions.favorites,
               ),
               PopupMenuItem(
-                child: const Text("Show All"),
+                child: Text("Show All"),
                 value: FavouritesOptions.all,
               )
             ],
@@ -64,7 +62,7 @@ class _HomeScreenState extends State<HomeScreen> {
             ),
           ),
         ]),
-        drawer: AppDrawer(),
+        drawer: const AppDrawer(),
         body: ProductGrid(_showFavoritesOnly));
   }
 }
